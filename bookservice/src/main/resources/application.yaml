@@ -1,0 +1,41 @@
+server:
+  port: 8081
+spring:
+    application:
+      name: bookservice
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ssmtest
+      username: root
+      password: 575888hmq
+#    cloud:
+#      nacos:
+#        discovery:
+#          server-addr: localhost:8848
+#      sentinel:
+#        transport:
+#           dashboard: localhost:8858
+#    session:
+#      # 存储类型修改为redis
+#      store-type: redis
+#    redis:
+#      host: localhost
+#      database: 0
+#      port: 6379
+#seata:
+#  service:
+#    vgroup-mapping:
+#      # 这里需要对事务组做映射，默认的分组名为 应用名称-seata-service-group，将其映射到default集群
+#      # 这个很关键，一定要配置对，不然会找不到服务
+#      bookservice-seata-service-group: default
+#    grouplist:
+#      default: localhost:8868
+security:
+  oauth2:
+    client:
+      #基操
+      client-id: web
+      client-secret: 654321
+    resource:
+      #因为资源服务器得验证你的Token是否有访问此资源的权限以及用户信息，所以只需要一个验证地址
+      token-info-uri: http://localhost:8500/sso/oauth/check_token
